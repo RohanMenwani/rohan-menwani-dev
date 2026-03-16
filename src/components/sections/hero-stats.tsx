@@ -10,9 +10,9 @@ interface StatItem {
 }
 
 const STATS: StatItem[] = [
-  { value: 6, suffix: "+", label: "Projects Shipped" },
-  { value: 25, suffix: "+", label: "Technologies" },
-  { value: 2, suffix: "+", label: "Years Building" },
+  { value: 3, suffix: "+", label: "Years Experience" },
+  { value: 10, suffix: "+", label: "Projects Delivered" },
+  { value: 40, suffix: "%", label: "Perf. Improvement" },
 ];
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
