@@ -1,4 +1,5 @@
 "use client";
+import confetti from "canvas-confetti";
 import { Check, ChevronRight, Loader2 } from "lucide-react";
 import React from "react";
 import { Label } from "./ui/label";
@@ -40,6 +41,12 @@ const ContactForm = () => {
         description: "I'll get back to you as soon as possible.",
         variant: "default",
         className: cn("top-0 mx-auto flex fixed md:top-4 md:right-4"),
+      });
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ["#6366f1", "#8b5cf6", "#c4b5fd"],
       });
       setLoading(false);
       setFullName("");
