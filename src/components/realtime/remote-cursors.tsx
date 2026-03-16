@@ -38,7 +38,7 @@ const RemoteCursors = () => {
     return () => {
       socket.off("cursor-changed");
     };
-  }, [socket, isMobile]);
+  }, [socket, isMobile, setUsers]);
   const handleMouseMove = useThrottle((x, y) => {
     socket?.emit("cursor-change", {
       pos: { x, y },
@@ -50,7 +50,7 @@ const RemoteCursors = () => {
     handleMouseMove(x, y);
   }, [x, y, isMobile]);
 
-  const users = Array.from(_users.values());
+  const users = _users;
 
   // Handle scroll to focused cursor
   useEffect(() => {
