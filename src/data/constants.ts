@@ -26,6 +26,8 @@ export enum SkillNames {
   VIM = "vim",
   VERCEL = "vercel",
 }
+export type SkillCategory = "frontend" | "backend" | "devops" | "tools";
+
 export type Skill = {
   id: number;
   name: string;
@@ -33,6 +35,7 @@ export type Skill = {
   shortDescription: string;
   color: string;
   icon: string;
+  category: SkillCategory;
 };
 export const SKILLS: Record<SkillNames, Skill> = {
   [SkillNames.JS]: {
@@ -42,6 +45,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "yeeting code into the DOM since '95, no cap! 💯🚀",
     color: "#f0db4f",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    category: "frontend",
   },
   [SkillNames.TS]: {
     id: 2,
@@ -51,6 +55,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
       "JavaScript's overachieving cousin who's always flexing 💯🔒",
     color: "#007acc",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    category: "frontend",
   },
   [SkillNames.HTML]: {
     id: 3,
@@ -59,6 +64,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "the internet's granddad,  still bussin' fr fr! 💀🔥",
     color: "#e34c26",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    category: "frontend",
   },
   [SkillNames.CSS]: {
     id: 4,
@@ -67,15 +73,17 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "styling with the ultimate drip, no cap 💁‍♂️🔥",
     color: "#563d7c",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    category: "frontend",
   },
   [SkillNames.REACT]: {
     id: 5,
     name: "react",
     label: "React",
-    shortDescription: `"use using" 
+    shortDescription: `"use using"
 using use = useUsing("use")`,
     color: "#61dafb",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    category: "frontend",
   },
   [SkillNames.VUE]: {
     id: 6,
@@ -85,6 +93,7 @@ using use = useUsing("use")`,
       "the chill pill for your frontend, it hits different! 🟢😌",
     color: "#41b883",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+    category: "frontend",
   },
   [SkillNames.NEXTJS]: {
     id: 7,
@@ -94,6 +103,7 @@ using use = useUsing("use")`,
       "the drama queen of front-end frameworks, and we stan! 👑📜",
     color: "#fff",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    category: "frontend",
   },
   [SkillNames.TAILWIND]: {
     id: 8,
@@ -102,6 +112,7 @@ using use = useUsing("use")`,
     shortDescription: "utility classes hitting different fr fr 🌪️🔥",
     color: "#38bdf8",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+    category: "frontend",
   },
   [SkillNames.NODEJS]: {
     id: 9,
@@ -110,6 +121,7 @@ using use = useUsing("use")`,
     shortDescription: "JavaScript said 'sike, I'm backend now', deadass! 🔙🔚",
     color: "#6cc24a",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    category: "backend",
   },
   [SkillNames.EXPRESS]: {
     id: 10,
@@ -118,6 +130,7 @@ using use = useUsing("use")`,
     shortDescription: "middlewares go dummy hard, no cap! 🚂💨",
     color: "#fff",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    category: "backend",
   },
   [SkillNames.POSTGRES]: {
     id: 11,
@@ -126,6 +139,7 @@ using use = useUsing("use")`,
     shortDescription: "SQL but make it fashion, purr 💅🐘",
     color: "#336791",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    category: "backend",
   },
   [SkillNames.MONGODB]: {
     id: 12,
@@ -134,6 +148,7 @@ using use = useUsing("use")`,
     shortDescription: "flexin' with that NoSQL drip, respectfully! 💪🍃",
     color: "#336791",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    category: "backend",
   },
   [SkillNames.GIT]: {
     id: 13,
@@ -142,6 +157,7 @@ using use = useUsing("use")`,
     shortDescription: "the code's personal bodyguard, no cap! 🕵️‍♂️🔄",
     color: "#f1502f",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    category: "tools",
   },
   [SkillNames.GITHUB]: {
     id: 14,
@@ -150,6 +166,7 @@ using use = useUsing("use")`,
     shortDescription: "sliding into those pull requests, IYKYK! 🐙",
     color: "#000000",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    category: "tools",
   },
   [SkillNames.PRETTIER]: {
     id: 15,
@@ -158,6 +175,7 @@ using use = useUsing("use")`,
     shortDescription: "making your code not a whole mess, thank u next 🧹✨",
     color: "#f7b93a",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prettier/prettier-original.svg",
+    category: "tools",
   },
   [SkillNames.NPM]: {
     id: 16,
@@ -166,6 +184,7 @@ using use = useUsing("use")`,
     shortDescription: "package manager said 'I gotchu fam', period! 📦💯",
     color: "#fff",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg",
+    category: "tools",
   },
   [SkillNames.FIREBASE]: {
     id: 17,
@@ -175,6 +194,7 @@ using use = useUsing("use")`,
       "your app's ultimate wingman, but watch out, vendor lock-in vibes! 🔥👌",
     color: "#ffca28",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+    category: "backend",
   },
   [SkillNames.WORDPRESS]: {
     id: 18,
@@ -183,6 +203,7 @@ using use = useUsing("use")`,
     shortDescription: "the grandpa of CMS, still rocking that cane 🧓👴",
     color: "#007acc",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
+    category: "tools",
   },
   [SkillNames.LINUX]: {
     id: 19,
@@ -191,6 +212,7 @@ using use = useUsing("use")`,
     shortDescription: "where 'chmod 777' is the ultimate flex 🔓🙌",
     color: "#fff",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+    category: "devops",
   },
   [SkillNames.DOCKER]: {
     id: 20,
@@ -199,6 +221,7 @@ using use = useUsing("use")`,
     shortDescription: "The best containerization! 🐳🔥",
     color: "#2496ed",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    category: "devops",
   },
   [SkillNames.NGINX]: {
     id: 21,
@@ -207,6 +230,7 @@ using use = useUsing("use")`,
     shortDescription: "reverse proxy go zoom zoom, sheesh! 🚗💨",
     color: "#008000",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
+    category: "devops",
   },
   [SkillNames.AWS]: {
     id: 22,
@@ -216,6 +240,7 @@ using use = useUsing("use")`,
       "always extra, making everything more complicated, period! 🌐👨‍💻",
     color: "#ff9900",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg",
+    category: "devops",
   },
   [SkillNames.GCP]: {
     id: 25,
@@ -225,6 +250,7 @@ using use = useUsing("use")`,
       "cloud computing but make it Google vibes, living rent free! ☁️🔥",
     color: "#4285f4",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+    category: "devops",
   },
   [SkillNames.VIM]: {
     id: 23,
@@ -233,6 +259,7 @@ using use = useUsing("use")`,
     shortDescription: "exit? In this economy? Ight, imma head out! 🚪🏃",
     color: "#e34c26",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg",
+    category: "tools",
   },
   [SkillNames.VERCEL]: {
     id: 24,
@@ -242,6 +269,7 @@ using use = useUsing("use")`,
       "The triangle compony, helps you deploy and go touch grass! 🚀🌿",
     color: "#6cc24a",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+    category: "devops",
   },
 };
 
