@@ -2,7 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 import { Preload } from "@react-three/drei";
-import { Suspense, ReactNode } from "react";
+import { Suspense, ReactNode, useEffect, useState } from "react";
 
 interface SceneCanvasProps {
   children: ReactNode;
@@ -15,6 +15,10 @@ export function SceneCanvas({
   className = "",
   camera = { position: [0, 0, 5], fov: 75 },
 }: SceneCanvasProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
   return (
     <Canvas
       className={className}
