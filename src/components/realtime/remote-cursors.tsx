@@ -150,7 +150,7 @@ const Cursor = ({
         // setShowText(false);
       }, timeToRead);
     }
-  }, [msgs]);
+  }, [msgs, users]);
 
   return (
     <motion.div
