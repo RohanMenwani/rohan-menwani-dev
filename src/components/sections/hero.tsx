@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import { File, Github, Linkedin } from "lucide-react";
 import {
@@ -17,6 +18,7 @@ import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
 import { config } from "@/data/config";
 import { SceneCanvas } from "@/components/3d";
 import { Hero3DScene } from "./hero-3d-scene";
+import { HeroStats } from "./hero-stats";
 
 import SectionWrapper from "../ui/section-wrapper";
 
@@ -151,14 +153,19 @@ const HeroSection = () => {
                   </div>
                 </div>
               </div>
+              {!isLoading && <HeroStats />}
             </div>
           )}
         </div>
         <div className="grid col-span-1"></div>
       </div>
-      <div className="absolute bottom-10 left-[50%] translate-x-[-50%]">
+      <motion.div
+        className="absolute bottom-10 left-[50%] translate-x-[-50%] flex flex-col items-center gap-1 text-muted-foreground"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 1.5 }}
+      >
         <ScrollDownIcon />
-      </div>
+      </motion.div>
     </SectionWrapper>
   );
 };
