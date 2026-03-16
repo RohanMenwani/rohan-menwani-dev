@@ -110,3 +110,24 @@ body {
 .glitch-text {
   animation: glitch 4s infinite;
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(262 83% 58% / 0.5);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(262 83% 58% / 0.8);
+}
+
+/* Text selection color */
+::selection {
+  background: hsl(262 83% 58% / 0.3);
+  color: hsl(var(--foreground));
+}
