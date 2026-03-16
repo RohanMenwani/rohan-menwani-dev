@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import SectionWrapper from "../ui/section-wrapper";
 import { SectionHeader } from "./section-header";
 import { SKILLS, type SkillCategory } from "@/data/constants";
+import { SkillsOrbsPanel } from "./skills-3d-orbs";
 
 const CATEGORIES: Array<{ id: SkillCategory | "all"; label: string }> = [
   { id: "all", label: "All" },
@@ -17,6 +18,7 @@ const CATEGORIES: Array<{ id: SkillCategory | "all"; label: string }> = [
 
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState<SkillCategory | "all">("all");
+  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
   const filteredSkills = Object.values(SKILLS).filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
@@ -44,6 +46,15 @@ const SkillsSection = () => {
             {cat.label}
           </motion.button>
         ))}
+      </div>
+
+      {/* 3D skill orbs — desktop only */}
+      <div className="pointer-events-auto hidden lg:block px-4 mb-6">
+        <SkillsOrbsPanel
+          skills={filteredSkills}
+          selectedSkill={selectedSkill}
+          onSelectSkill={setSelectedSkill}
+        />
       </div>
 
       {/* Mobile skill card grid — only visible on small screens */}
