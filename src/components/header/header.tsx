@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import styles from "./style.module.scss";
@@ -18,11 +18,20 @@ interface HeaderProps {
 
 const Header = ({ loader }: HeaderProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <motion.header
       className={cn(
         styles.header,
-        "transition-colors delay-100 duration-500 ease-in z-[1000]"
+        "transition-all delay-100 duration-500 ease-in z-[1000]",
+        scrolled && "backdrop-blur-md border-b border-border/50 shadow-sm"
       )}
       style={{
         background: isActive ? "hsl(var(--background) / .8)" : "transparent",
