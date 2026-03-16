@@ -70,7 +70,7 @@ const SkillsSection = () => {
               transition={{ duration: 0.25, delay: i * 0.03 }}
               onHoverStart={() => setHoveredSkill(skill.name)}
               onHoverEnd={() => setHoveredSkill(null)}
-              className="relative flex flex-col items-center gap-2 p-3 md:p-4 rounded-xl bg-card border border-border transition-all duration-300 cursor-default group"
+              className="relative flex flex-col items-center gap-2 p-3 md:p-4 rounded-xl bg-card border border-border transition-all duration-300 cursor-default group cursor-can-hover"
               style={{
                 borderColor: hoveredSkill === skill.name ? skill.color + "80" : undefined,
                 boxShadow: hoveredSkill === skill.name ? `0 0 16px ${skill.color}30` : undefined,

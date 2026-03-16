@@ -78,7 +78,7 @@ const Header = ({ loader }: HeaderProps) => {
           onClick={() => setIsActive(!isActive)}
           className={cn(
             styles.el,
-            "m-0 p-0 h-8 w-8 bg-transparent flex items-center justify-center"
+            "m-0 px-4 py-2 h-10 bg-transparent flex items-center justify-center"
           )}
         >
           <div
