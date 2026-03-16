@@ -38,8 +38,8 @@ const HeroSection = () => {
           className={cn(
             "h-[calc(100dvh-3rem)] md:h-[calc(100dvh-4rem)] z-[2]",
             "col-span-1",
-            "flex flex-col justify-start md:justify-center items-center md:items-start",
-            "pt-28 sm:pb-16 md:p-20 lg:p-24 xl:p-28"
+            "flex flex-col justify-center md:justify-center items-start",
+            "px-6 sm:px-10 md:p-20 lg:p-24 xl:p-28"
           )}
         >
           {!isLoading && (
@@ -63,7 +63,7 @@ const HeroSection = () => {
                       <h1
                         className={cn(
                           "-ml-[6px] leading-none font-thin text-transparent text-slate-800 text-left",
-                          "font-thin text-7xl md:text-7xl lg:text-8xl xl:text-9xl",
+                          "font-thin text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl",
                           "cursor-default text-edge-outline font-display "
                         )}
                       >
@@ -84,11 +84,13 @@ const HeroSection = () => {
                 <BlurIn delay={1.2}>
                   <p
                     className={cn(
-                      "md:self-start md:mt-4 font-thin text-md text-slate-500 dark:text-zinc-400",
-                      "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      "md:self-start md:mt-4 font-thin text-sm sm:text-base md:text-xl text-slate-500 dark:text-zinc-400",
+                      "cursor-default font-display bg-clip-text max-w-xs sm:max-w-none"
                     )}
                   >
-                    Full Stack Developer · 3+ Years · AWS · Next.js · NestJS
+                    Full Stack Developer · 3+ Years
+                    <br className="sm:hidden" />
+                    {" "}· AWS · Next.js · NestJS
                   </p>
                 </BlurIn>
               </div>

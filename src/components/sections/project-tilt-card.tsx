@@ -78,8 +78,8 @@ export function ProjectTiltCard({
           {title}
         </h3>
 
-        {/* Actions — reveal on hover */}
-        <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-2 group-hover:translate-y-0">
+        {/* Actions — always visible on mobile, reveal on hover for desktop */}
+        <div className="flex gap-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 sm:-translate-y-2 sm:group-hover:translate-y-0">
           <button
             onClick={(e) => {
               e.stopPropagation();

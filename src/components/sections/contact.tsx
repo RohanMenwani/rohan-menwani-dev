@@ -10,7 +10,7 @@ import { ContactSphere } from "./contact-3d-sphere";
 
 const ContactSection = () => {
   return (
-    <SectionWrapper id="contact" className="min-h-screen max-w-7xl mx-auto">
+    <SectionWrapper id="contact" className="min-h-screen max-w-7xl mx-auto py-20">
       <SectionHeader
         id="contact"
         className="relative mb-14"
@@ -23,13 +23,13 @@ const ContactSection = () => {
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-4">
-        {/* Left: 3D sphere */}
+        {/* Left: 3D sphere — hidden on mobile to save space and perf */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex items-center justify-center"
+          className="hidden lg:flex items-center justify-center"
         >
           <ContactSphere />
         </motion.div>
