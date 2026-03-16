@@ -10,11 +10,13 @@ import {
 } from "../ui/animated-modal";
 import { FloatingDock } from "../ui/floating-dock";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import SmoothScroll from "../smooth-scroll";
 import projects, { Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "./section-header";
+import { ProjectTiltCard } from "./project-tilt-card";
 
 import SectionWrapper from "../ui/section-wrapper";
 
@@ -22,59 +24,61 @@ const ProjectsSection = () => {
   return (
     <SectionWrapper id="projects" className="max-w-7xl mx-auto md:h-[130vh]">
       <SectionHeader id='projects' title="Projects" />
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4"
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.1 } },
+        }}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         {projects.map((project, index) => (
-          <Modall key={project.src} project={project} />
+          <motion.div
+            key={project.src}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
+          >
+            <Modall project={project} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </SectionWrapper>
   );
 };
 const Modall = ({ project }: { project: Project }) => {
   return (
-    <div className="flex items-center justify-center">
-      <Modal>
-        <ModalTrigger className="bg-transparent flex justify-center group/modal-btn">
-          <div
-            className="relative w-[400px] h-auto rounded-lg overflow-hidden"
-            style={{ aspectRatio: "3/2" }}
-          >
-            <Image
-              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
-              src={project.src}
-              alt={project.title}
-              width={300}
-              height={300}
-            />
-            <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-black via-black/85 to-transparent pointer-events-none">
-              <div className="flex flex-col h-full items-start justify-end p-6">
-                <div className="text-lg text-left">{project.title}</div>
-                <div className="text-xs bg-white text-black rounded-lg w-fit px-2">
-                  {project.category}
-                </div>
-              </div>
-            </div>
-          </div>
-        </ModalTrigger>
-        <ModalBody className="md:max-w-4xl md:max-h-[80%] overflow-auto">
-          <SmoothScroll isInsideModal={true}>
-            <ModalContent>
-              <ProjectContents project={project} />
-            </ModalContent>
-          </SmoothScroll>
-          <ModalFooter className="gap-4">
-            <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
-              Cancel
+    <Modal>
+      <ModalTrigger className="bg-transparent w-full p-0 h-auto">
+        <ProjectTiltCard
+          title={project.title}
+          image={project.src}
+          category={project.category}
+          liveUrl={project.live}
+          onClick={() => {}}
+        />
+      </ModalTrigger>
+      <ModalBody className="md:max-w-4xl md:max-h-[80%] overflow-auto">
+        <SmoothScroll isInsideModal={true}>
+          <ModalContent>
+            <ProjectContents project={project} />
+          </ModalContent>
+        </SmoothScroll>
+        <ModalFooter className="gap-4">
+          <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
+            Cancel
+          </button>
+          <Link href={project.live} target="_blank">
+            <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
+              Visit
             </button>
-            <Link href={project.live} target="_blank">
-              <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                Visit
-              </button>
-            </Link>
-          </ModalFooter>
-        </ModalBody>
-      </Modal>
-    </div>
+          </Link>
+        </ModalFooter>
+      </ModalBody>
+    </Modal>
   );
 };
 export default ProjectsSection;
