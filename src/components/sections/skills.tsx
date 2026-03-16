@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import SectionWrapper from "../ui/section-wrapper";
 import { SectionHeader } from "./section-header";
 import { SKILLS, type SkillCategory } from "@/data/constants";
-import { SkillsOrbsPanel } from "./skills-3d-orbs";
 
 const CATEGORIES: Array<{ id: SkillCategory | "all"; label: string }> = [
   { id: "all", label: "All" },
@@ -18,18 +17,21 @@ const CATEGORIES: Array<{ id: SkillCategory | "all"; label: string }> = [
 
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState<SkillCategory | "all">("all");
-  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   const filteredSkills = Object.values(SKILLS).filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
   );
 
   return (
-    <SectionWrapper id="skills" className="w-full h-screen md:h-[150dvh] pointer-events-none">
-      <SectionHeader id="skills" title="Tech Stack" desc="(hint: press a key)" />
+    <SectionWrapper
+      id="skills"
+      className="w-full min-h-screen md:h-auto pointer-events-none py-20"
+    >
+      <SectionHeader id="skills" title="Tech Stack" desc="Technologies I work with" />
 
-      {/* Category filter tabs — pointer-events-auto so they're clickable */}
-      <div className="pointer-events-auto flex gap-2 justify-center flex-wrap mb-8 px-4">
+      {/* Category filter tabs */}
+      <div className="pointer-events-auto flex gap-2 justify-center flex-wrap mb-10 px-4">
         {CATEGORIES.map((cat) => (
           <motion.button
             key={cat.id}
@@ -48,20 +50,11 @@ const SkillsSection = () => {
         ))}
       </div>
 
-      {/* 3D skill orbs — desktop only */}
-      <div className="pointer-events-auto hidden lg:block px-4 mb-6">
-        <SkillsOrbsPanel
-          skills={filteredSkills}
-          selectedSkill={selectedSkill}
-          onSelectSkill={setSelectedSkill}
-        />
-      </div>
-
-      {/* Mobile skill card grid — only visible on small screens */}
+      {/* Skill card grid — visible on all screen sizes */}
       <AnimatePresence mode="popLayout">
         <motion.div
           key={activeCategory}
-          className="pointer-events-auto grid grid-cols-2 sm:grid-cols-3 gap-3 px-4 md:hidden"
+          className="pointer-events-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3 px-4 max-w-6xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -71,18 +64,52 @@ const SkillsSection = () => {
             <motion.div
               key={skill.name}
               layout
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.8, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.2, delay: i * 0.03 }}
-              className="flex flex-col items-center gap-2 p-4 rounded-xl bg-card border border-border hover:border-violet-500 transition-colors cursor-pointer"
+              transition={{ duration: 0.25, delay: i * 0.03 }}
+              onHoverStart={() => setHoveredSkill(skill.name)}
+              onHoverEnd={() => setHoveredSkill(null)}
+              className="relative flex flex-col items-center gap-2 p-3 md:p-4 rounded-xl bg-card border border-border transition-all duration-300 cursor-default group"
+              style={{
+                borderColor: hoveredSkill === skill.name ? skill.color + "80" : undefined,
+                boxShadow: hoveredSkill === skill.name ? `0 0 16px ${skill.color}30` : undefined,
+              }}
             >
+              {/* Icon */}
               <img
                 src={skill.icon}
                 alt={skill.label}
-                className="w-10 h-10 object-contain"
+                className="w-8 h-8 md:w-10 md:h-10 object-contain transition-transform duration-300 group-hover:scale-110"
               />
-              <span className="text-sm font-medium text-center">{skill.label}</span>
+
+              {/* Name */}
+              <span className="text-xs md:text-sm font-medium text-center leading-tight">
+                {skill.label}
+              </span>
+
+              {/* Color dot */}
+              <div
+                className="w-1.5 h-1.5 rounded-full opacity-60"
+                style={{ backgroundColor: skill.color === "#fff" || skill.color === "#ffffff" ? "#a5b4fc" : skill.color }}
+              />
+
+              {/* Tooltip with description on hover */}
+              <AnimatePresence>
+                {hoveredSkill === skill.name && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 4, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 4, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 w-44 p-2 rounded-lg bg-popover border border-border shadow-xl text-xs text-muted-foreground text-center pointer-events-none"
+                  >
+                    {skill.shortDescription}
+                    {/* Arrow */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-border" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           ))}
         </motion.div>
