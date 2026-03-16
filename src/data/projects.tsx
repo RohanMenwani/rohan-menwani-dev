@@ -1,3 +1,4 @@
+import SlideShow from "@/components/slide-show";
 import { Button } from "@/components/ui/button";
 import { TypographyH3, TypographyP } from "@/components/ui/typography";
 import { ArrowUpRight } from "lucide-react";
@@ -174,6 +175,7 @@ const projects: Project[] = [
             scoring, and intelligent question generation from both handwritten
             and digital documents — removing the need for manual grading entirely.
           </p>
+          <SlideShow images={[`${BASE_PATH}/ai-assessment/landing.png`, `${BASE_PATH}/ai-assessment/problems.png`]} />
 
           <TypographyH3 className="my-4 mt-8">Three-App Architecture</TypographyH3>
           <p className="font-mono mb-2">
@@ -189,6 +191,7 @@ const projects: Project[] = [
             Developed ranking systems, detailed progress tracking dashboards, and
             analytics for both students and administrators.
           </p>
+          <SlideShow images={[`${BASE_PATH}/ai-assessment/dashboard.png`]} />
         </div>
       );
     },
@@ -229,6 +232,7 @@ const projects: Project[] = [
             relational queries and reducing average API response times by 40%
             compared to the previous REST architecture.
           </p>
+          <SlideShow images={[`${BASE_PATH}/tristar-crm/landing.png`]} />
 
           <TypographyH3 className="my-4 mt-8">Real-Time Sync</TypographyH3>
           <p className="font-mono mb-2">
@@ -244,6 +248,7 @@ const projects: Project[] = [
             Designed a normalized PostgreSQL schema with indexes for efficient
             relational data retrieval.
           </p>
+          <SlideShow images={[`${BASE_PATH}/tristar-crm/dashboard.png`, `${BASE_PATH}/tristar-crm/analytics.png`]} />
         </div>
       );
     },
@@ -283,6 +288,7 @@ const projects: Project[] = [
             geometries + particle stars with mouse parallax), skills (interactive
             floating orbs), and contact (distorted animated sphere) sections.
           </p>
+          <SlideShow images={[`${BASE_PATH}/portfolio/landing.png`, `${BASE_PATH}/portfolio/skills.png`]} />
 
           <TypographyH3 className="my-4 mt-8">Cinematic Animations</TypographyH3>
           <p className="font-mono mb-2">
@@ -290,6 +296,7 @@ const projects: Project[] = [
             timeline slide-ins, and project card stagger animations. GSAP +
             ScrollTrigger handles the Spline 3D keyboard transitions.
           </p>
+          <SlideShow images={[`${BASE_PATH}/portfolio/projects.png`, `${BASE_PATH}/portfolio/project.png`]} />
 
           <TypographyH3 className="my-4 mt-8">Real-Time Collaboration Layer</TypographyH3>
           <p className="font-mono mb-2">
