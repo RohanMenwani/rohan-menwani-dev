@@ -80,15 +80,16 @@ export function ProjectTiltCard({
 
         {/* Actions — always visible on mobile, reveal on hover for desktop */}
         <div className="flex gap-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 sm:-translate-y-2 sm:group-hover:translate-y-0">
-          <button
+          <div
+            role="button"
             onClick={(e) => {
               e.stopPropagation();
               onClick();
             }}
-            className="flex-1 py-2 text-sm font-medium rounded-lg bg-violet-600 hover:bg-violet-700 text-white transition-colors"
+            className="flex-1 py-2 text-sm font-medium rounded-lg bg-violet-600 hover:bg-violet-700 text-white transition-colors text-center cursor-pointer"
           >
             View Details
-          </button>
+          </div>
           {liveUrl && liveUrl !== "#" && (
             <a
               href={liveUrl}
