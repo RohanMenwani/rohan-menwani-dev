@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
@@ -13,6 +15,8 @@ import { BlurIn, BoxReveal } from "../reveal-animations";
 import ScrollDownIcon from "../scroll-down-icon";
 import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
 import { config } from "@/data/config";
+import { SceneCanvas } from "@/components/3d";
+import { Hero3DScene } from "./hero-3d-scene";
 
 import SectionWrapper from "../ui/section-wrapper";
 
@@ -21,6 +25,12 @@ const HeroSection = () => {
 
   return (
     <SectionWrapper id="hero" className={cn("relative w-full h-screen")}>
+      {/* 3D background */}
+      <div className="absolute inset-0 -z-10">
+        <SceneCanvas camera={{ position: [0, 0, 6], fov: 70 }}>
+          <Hero3DScene />
+        </SceneCanvas>
+      </div>
       <div className="grid md:grid-cols-2">
         <div
           className={cn(

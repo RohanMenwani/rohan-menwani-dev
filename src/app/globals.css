@@ -98,3 +98,15 @@ body {
     pointer-events: auto;
   }
 }
+
+@keyframes glitch {
+  0%, 100% { text-shadow: none; transform: translate(0); }
+  20% { text-shadow: -2px 0 #f0f, 2px 0 #0ff; transform: translate(-1px, 1px); }
+  40% { text-shadow: 2px 0 #f0f, -2px 0 #0ff; transform: translate(1px, -1px); }
+  60% { text-shadow: -2px 0 #0ff, 2px 0 #f0f; transform: translate(-1px, 0); }
+  80% { text-shadow: 2px 0 #0ff, -2px 0 #f0f; transform: translate(1px, 1px); }
+}
+
+.glitch-text {
+  animation: glitch 4s infinite;
+}
