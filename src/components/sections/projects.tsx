@@ -86,57 +86,55 @@ export default ProjectsSection;
 const ProjectContents = ({ project }: { project: Project }) => {
   return (
     <>
-      <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
+      {/* Title */}
+      <motion.h4
+        className="text-lg md:text-2xl font-bold text-center mb-6 bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+      >
         {project.title}
-      </h4>
-      <div className="flex flex-col md:flex-row md:justify-evenly max-w-screen overflow-hidden md:overflow-visible">
-        <div className="flex flex-row md:flex-col-reverse justify-center items-center gap-2 text-3xl mb-8">
+      </motion.h4>
+
+      {/* Tech stack */}
+      <motion.div
+        className="flex flex-col md:flex-row md:justify-evenly max-w-screen overflow-hidden md:overflow-visible mb-6"
+        initial="hidden"
+        animate="show"
+        variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+      >
+        <motion.div
+          className="flex flex-row md:flex-col-reverse justify-center items-center gap-2 text-3xl mb-8"
+          variants={{ hidden: { opacity: 0, x: -20 }, show: { opacity: 1, x: 0 } }}
+        >
           <p className="text-sm mt-1 text-neutral-600 dark:text-neutral-500">
             Frontend
           </p>
           {project.skills.frontend?.length > 0 && (
             <FloatingDock items={project.skills.frontend} />
           )}
-        </div>
+        </motion.div>
         {project.skills.backend?.length > 0 && (
-          <div className="flex flex-row md:flex-col-reverse justify-center items-center gap-2 text-3xl mb-8">
+          <motion.div
+            className="flex flex-row md:flex-col-reverse justify-center items-center gap-2 text-3xl mb-8"
+            variants={{ hidden: { opacity: 0, x: 20 }, show: { opacity: 1, x: 0 } }}
+          >
             <p className="text-sm mt-1 text-neutral-600 dark:text-neutral-500">
               Backend
             </p>
             <FloatingDock items={project.skills.backend} />
-          </div>
-        )}
-      </div>
-      {/* <div className="flex justify-center items-center">
-        {project.screenshots.map((image, idx) => (
-          <motion.div
-            key={"images" + idx}
-            style={{
-              rotate: Math.random() * 20 - 10,
-            }}
-            whileHover={{
-              scale: 1.1,
-              rotate: 0,
-              zIndex: 100,
-            }}
-            whileTap={{
-              scale: 1.1,
-              rotate: 0,
-              zIndex: 100,
-            }}
-            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 flex-shrink-0 overflow-hidden"
-          >
-            <Image
-              src={`${project.src.split("1.png")[0]}${image}`}
-              alt="screenshots"
-              width="500"
-              height="500"
-              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
-            />
           </motion.div>
-        ))}
-      </div> */}
-      {project.content}
+        )}
+      </motion.div>
+
+      {/* Project content */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.4 }}
+      >
+        {project.content}
+      </motion.div>
     </>
   );
 };
