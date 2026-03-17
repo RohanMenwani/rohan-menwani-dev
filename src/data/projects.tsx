@@ -257,8 +257,8 @@ const projects: Project[] = [
     id: "portfolio",
     category: "Portfolio",
     title: "This Portfolio",
-    src: "/assets/projects-screenshots/portfolio/landing.png",
-    screenshots: ["landing.png"],
+    src: "/assets/projects-screenshots/portfolio/landing-new.png",
+    screenshots: ["landing-new.png"],
     live: "https://rohan-menwani.vercel.app",
     github: "https://github.com/RohanMenwani/3d-portfolio",
     skills: {

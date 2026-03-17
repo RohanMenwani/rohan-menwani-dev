@@ -49,6 +49,7 @@ export function ProjectTiltCard({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      data-no-custom-cursor="true"
       className="group relative rounded-2xl overflow-hidden bg-card border border-border cursor-pointer"
       style={{ transformStyle: "preserve-3d" }}
       onClick={onClick}
@@ -80,7 +81,7 @@ export function ProjectTiltCard({
 
         {/* Actions — always visible on mobile, reveal on hover for desktop */}
         <div className="flex gap-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 sm:-translate-y-2 sm:group-hover:translate-y-0">
-          <div
+          {/* <div
             role="button"
             onClick={(e) => {
               e.stopPropagation();
@@ -89,8 +90,8 @@ export function ProjectTiltCard({
             className="flex-1 py-2 text-sm font-medium rounded-lg bg-violet-600 hover:bg-violet-700 text-white transition-colors text-center cursor-pointer"
           >
             View Details
-          </div>
-          {liveUrl && liveUrl !== "#" && (
+          </div> */}
+          {/* {liveUrl && liveUrl !== "#" && (
             <a
               href={liveUrl}
               target="_blank"
@@ -100,7 +101,7 @@ export function ProjectTiltCard({
             >
               <ExternalLink className="w-4 h-4" />
             </a>
-          )}
+          )} */}
         </div>
       </div>
     </div>

@@ -79,8 +79,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     id: 5,
     name: "react",
     label: "React",
-    shortDescription: `"use using"
-using use = useUsing("use")`,
+    shortDescription: `"use using"\nusing use = useUsing("use")`,
     color: "#61dafb",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     category: "frontend",
@@ -291,11 +290,9 @@ export const EXPERIENCE: Experience[] = [
     title: "Full Stack Developer",
     company: "Intellimedia Networks",
     description: [
-      "Architected and delivered multiple full-stack product features, improving development velocity by 25% through modular component architecture and cross-functional collaboration.",
-      "Engineered NestJS microservices for cloud server provisioning automation on Oracle Cloud Infrastructure, integrating AWS S3 and CloudFront for media streaming.",
-      "Led technical migration from Socket.IO/Express to NestJS WebSocket implementation, reducing server response times by 18%.",
-      "Mentored and managed a team of 5 developers, conducted code reviews, and ensured 100% on-time delivery across concurrent projects.",
-      "Implemented secure JWT authentication and Stripe payment integration, increasing transaction success rate by 15%.",
+      "Built NestJS microservices for cloud server provisioning on OCI, with AWS S3 & CloudFront for media streaming.",
+      "Migrated Socket.IO/Express to NestJS WebSockets; mentored 5 devs with 100% on-time delivery.",
+      "Implemented JWT auth and Stripe payment integration across multiple full-stack features.",
     ],
     skills: [
       SkillNames.NEXTJS,
@@ -314,10 +311,9 @@ export const EXPERIENCE: Experience[] = [
     title: "Software Developer",
     company: "La Net Team Software Solutions",
     description: [
-      "Delivered 3+ enterprise-grade full-stack client applications using Next.js, TypeScript, Prisma ORM, and PostgreSQL/MongoDB, achieving 100% on-time project delivery.",
-      "Reduced post-deployment production bugs by 20% through comprehensive unit testing, code reviews, and TypeScript strict mode standards.",
-      "Collaborated with cross-functional agile/Scrum teams while independently managing end-to-end delivery of solo client projects.",
-      "Implemented responsive frontend designs with React.js and Tailwind CSS, ensuring mobile-first accessibility and cross-browser compatibility.",
+      "Delivered 3+ full-stack applications with Next.js, TypeScript, Prisma, and PostgreSQL/MongoDB — all on time.",
+      "Cut post-deployment bugs by 20% via unit testing, code reviews, and TypeScript strict mode.",
+      "Built responsive, mobile-first UIs with React and Tailwind CSS across solo and agile team projects.",
     ],
     skills: [
       SkillNames.NEXTJS,
@@ -336,8 +332,7 @@ export const EXPERIENCE: Experience[] = [
     title: "Python Developer Intern",
     company: "CreArt Solutions",
     description: [
-      "Developed a secure web portal using Django with authentication, role-based access control, and session management.",
-      "Implemented Django ORM models, views, and templates following MVC architecture and security best practices.",
+      "Built a secure Django web portal with authentication, RBAC, and session management following MVC best practices.",
     ],
     skills: [
       SkillNames.LINUX,

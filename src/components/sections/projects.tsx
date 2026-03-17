@@ -23,7 +23,7 @@ import SectionWrapper from "../ui/section-wrapper";
 const ProjectsSection = () => {
   return (
     <SectionWrapper id="projects" className="max-w-7xl mx-auto py-20">
-      <SectionHeader id='projects' title="Projects" />
+      <SectionHeader id='projects' title="Projects" className="mb-12 md:mb-20" />
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4"
         variants={{

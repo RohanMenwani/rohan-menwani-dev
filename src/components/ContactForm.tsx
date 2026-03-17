@@ -103,9 +103,6 @@ const ContactForm = () => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-        <p className="text-sm text-muted-foreground">
-          I&apos;ll never share your data with anyone else. Pinky promise!
-        </p>
       </div>
       <Button
         disabled={loading}

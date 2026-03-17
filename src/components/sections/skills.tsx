@@ -28,7 +28,7 @@ const SkillsSection = () => {
       id="skills"
       className="w-full min-h-screen md:h-auto pointer-events-none py-20"
     >
-      <SectionHeader id="skills" title="Tech Stack" desc="Technologies I work with" />
+      <SectionHeader id="skills" title="Tech Stack" desc="Technologies I work with" className="mb-12 md:mb-20" />
 
       {/* Category filter tabs */}
       <div className="pointer-events-auto flex gap-2 justify-center flex-wrap mb-10 px-4">
@@ -54,6 +54,7 @@ const SkillsSection = () => {
       <AnimatePresence mode="popLayout">
         <motion.div
           key={activeCategory}
+          data-no-custom-cursor="true"
           className="pointer-events-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3 px-4 max-w-6xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

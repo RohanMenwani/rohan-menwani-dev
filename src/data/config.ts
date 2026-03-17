@@ -35,8 +35,7 @@ const config = {
   social: {
     twitter: "https://x.com/RohanMenwani",
     linkedin: "https://www.linkedin.com/in/rohan-menwani/",
-    instagram: "https://www.instagram.com/rohan.menwani",
-    facebook: "https://www.facebook.com/rohan.menwani",
+    instagram: "https://www.instagram.com/rohan._.menwani",
     github: "https://github.com/RohanMenwani",
   },
 };

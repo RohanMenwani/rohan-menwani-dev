@@ -36,7 +36,7 @@ const HeroSection = () => {
       <div className="grid md:grid-cols-2">
         <div
           className={cn(
-            "h-[calc(100dvh-3rem)] md:h-[calc(100dvh-4rem)] z-[2]",
+            "h-[calc(100dvh-4rem)] md:h-[calc(100dvh-4rem)] z-[2]",
             "col-span-1",
             "flex flex-col justify-center md:justify-center items-start",
             "px-6 sm:px-10 md:p-20 lg:p-24 xl:p-28"

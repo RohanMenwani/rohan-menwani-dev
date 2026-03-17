@@ -13,7 +13,7 @@ const ContactSection = () => {
     <SectionWrapper id="contact" className="min-h-screen max-w-7xl mx-auto py-20">
       <SectionHeader
         id="contact"
-        className="relative mb-14"
+        className="relative mb-16 md:mb-24"
         title={
           <>
             LET&apos;S WORK <br />
@@ -22,7 +22,7 @@ const ContactSection = () => {
         }
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-4 pt-4">
         {/* Left: 3D sphere — hidden on mobile to save space and perf */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -50,7 +50,7 @@ const ContactSection = () => {
               href={`mailto:${config.email}`}
               className="text-violet-400 hover:text-violet-300 transition-colors"
             >
-              {config.email.replace(/@/g, "(at)")}
+              {config.email}
             </a>{" "}
             or use the form below.
           </p>
