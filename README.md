@@ -4,9 +4,9 @@ A jaw-dropping developer portfolio packed with interactive 3D animations, butter
 
 > **Free to use!** This portfolio is open source. If you use it, a credit/link back would be really appreciated 🙏
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Naresh-Khatri/3d-portfolio)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/RohanMenwani/rohan-menwani-dev)
 
-![Portfolio Preview](https://github.com/Naresh-Khatri/Portfolio/blob/main/public/assets/projects-screenshots/portfolio/landing.png?raw=true)
+![Portfolio Preview](https://rohan-menwani.vercel.app/assets/seo/og-image.png)
 
 ## ✨ Features
 
@@ -43,7 +43,7 @@ A jaw-dropping developer portfolio packed with interactive 3D animations, butter
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/Naresh-Khatri/3d-portfolio.git
+    git clone https://github.com/RohanMenwani/rohan-menwani-dev.git
     cd 3d-portfolio
     ```
 
@@ -162,7 +162,7 @@ These features activate automatically when the `NEXT_PUBLIC_WS_URL` environment 
 
 ## 🚀 Deployment
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Naresh-Khatri/3d-portfolio)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/RohanMenwani/rohan-menwani-dev)
 
 This site is deployed on **Vercel**. To deploy your own:
 
@@ -182,5 +182,3 @@ If you'd like to contribute or suggest improvements, feel free to open an issue 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
-
-If you use this portfolio, a credit or link back to the [original repo](https://github.com/Naresh-Khatri/3d-portfolio) would be much appreciated ❤️
