@@ -4,7 +4,7 @@ import { TypographyH3, TypographyP } from "@/components/ui/typography";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri";
+import { RiNextjsFill, RiReactjsFill } from "react-icons/ri";
 import {
   SiFirebase,
   SiGraphql,
@@ -68,12 +68,6 @@ const PROJECT_SKILLS = {
     bg: "black",
     fg: "white",
     icon: <RiReactjsFill />,
-  },
-  node: {
-    title: "Node.js",
-    bg: "black",
-    fg: "white",
-    icon: <RiNodejsFill />,
   },
   nestjs: {
     title: "NestJS",
